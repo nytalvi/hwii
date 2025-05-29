@@ -1,0 +1,11 @@
+3 BIT PALETTE
+
+COLOR     HEX
+Black     #00000
+White     #ffffff
+Red       #ff3016
+Green     #00f92c
+Blue      #00f92c
+Magenta   #ff3ffc
+Yellow    #fffd33
+Cyan      #00fcfe

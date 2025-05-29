@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>λ</title>
+        <link rel="stylesheet" href="../style.css">
+        <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+    </head>
+    <body>
+        <a href="../3bitpalette.txt"><img src="../img/3bit.jpg" alt="3-bit color palette"
+            class="bottomright" /></a>
+
+            <div class="container">
+                <div class="header">
+                    <h1>λ</h1>
+                    <p>Written by polly@hwii.net on 5/20/2025</p>
+                    <div id="note">
+                        <p>Special notice: This post is rich in LaTeX, and uses MathJax to render mathematical expressions. They might not render correctly in all browsers, sorry for the inconvenience. Firefox reader mode has issues with this, though it works fine in normal mode.</p>
+                    </div>
+                </div>
+                <div class="content">
+
+                    <h2>Lambda Calculus as a Turing-complete System</h2>
+                    <p>Not only is Lambda Calculus a system for function application, but it is also Turing-complete, meaning it's able to simulate any <a href="https://en.wikipedia.org/wiki/Turing_machine">Turing machine</a>. Despite the syntactic simplicity of Lambda Calculus, it can simulate any algorithmic process, and only requires the three basic constructs of the language: variables, abstractions, and applications.</p>
+
+                    <p>Church's demonstration of Lambda Calculus' expressive power laid the groundwork for this equivalence. In particular, Church introduced a method for representing numbers and operations using only numbers, known as <i>Church Numerals.</i> These representations define natural numbers in terms of repeated function application. For instance, the number 0 (zero) is represented as \( \lambda f.\lambda x.x \), which is a function that takes two arguments and returns the second. One is \( \lambda f.\lambda x.f\ x \), and two is \( \lambda f.\lambda x.f\ (f\ x) \), and so on. With this system, arithmetic equations can be defined as higher-order functions:</p>
+
+                    <ul>
+                        <li>Addition: \(\text{ADD} \equiv \lambda m.\lambda n.\lambda f.\lambda x.\; m\; f\; (n\; f\; x)\)</li>
+                        <li>Multiplication: \(\text{MULT} \equiv \lambda m.\lambda n.\lambda f.\; m\; (n\; f)\)</li>
+                    </ul>
+
+                    <p>Even more than that, logical values and conditionals can also be encoded. The boolean value \(\text{TRUE}\) is defined as \(\lambda x.\lambda y.\; x\), and \(\text{FALSE}\) is defined as \(\lambda x.\lambda y.\; y\). Using these definitions, it is possible to create conditional expressions:</p>
+
+                    <ul>
+                        <li>If-then-else: \(\text{IF} \equiv \lambda p.\lambda a.\lambda b.\; p\; a\; b\)</li>
+                    </ul>
+
+                    <p>This allows for the capability of constructing (basic) control flow purely with functions, without native syntax for conditionals.</p>
+
+                    <p>Perhaps the most profound aspect of Lambda Calculus' expressive capacity is the ability to define recursive functions using the Y combinator, a fixed-point combinator that enables for self-reference. The Y combinator is defined as:</p>
+
+                    <ul>
+                        <li>\(\text{Y} \equiv \lambda f.(\lambda x.\; f\; (x\; x))\; (\lambda x.\; f\; (x\; x))\)</li>
+                    </ul>
+
+                    <p>Using the Y combinator, functions can call themselves, allowing for the definition of iterative procedures, like computing factorials or performing list processing<a href="#r5">[5]</a>.</p>
+
+                    <p>Despite the minimal syntax of Lambda Calculus, it is as powerful as any modern programming language in terms of what it can compute. The elegance of Lambda Calculus lies in its ability to capture the very essence of computation using only function definition and application.</p>
+
+                    <p>Thank you for reading.</p>
+
+                </div>
+                <div class="footer">
+                    <h2>References & Notes</h2>
+                    <ol>
+                        <li id="r1">Church, Alonzo. The Calculi of Lambda-Conversion. Princeton University Press, 1941.</li>
+                        <li id="r2">Turing, Alan. “On Computable Numbers, with an Application to the Entscheidungsproblem.” Proceedings of the London Mathematical Society, vol. 2, no. 42, 1937, pp. 230-265.</li>
+                        <li id="r3">Barendregt, Henk. The Lambda Calculus: Its Syntax and Semantics. North-Holland, 1984.</li>
+                        <li id="r4">Pierce, Benjamin C. Types and Programming Languages. MIT Press, 2002.</li>
+                        <li id="r5">The term "LISP" stands for "LISt Processing," and is one of the earliest programming languages, developed by John McCarthy in 1958. The core functionality of LISP is directly inspired by Lambda Calculus, making it one of the clearest examples of Lambda Calculus' real-world influence.</li>
+                    </ol>
+                    <hr/>
+                    &copy; 2024, 2025 hwii. All content is by hwii unless otherwise specified. Contact <a href="mailto:polly@hwii.net">polly@hwii.net</a> for questions or comments.
+                    <hr/>
+                        <center>
+                            <i>Rather than just listen, be altered by what has been said.</i>
+                        </center>    
+                </div>
+            </div>
+    </body>
+</html>
