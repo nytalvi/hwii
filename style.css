@@ -117,6 +117,7 @@ figcaption {
     right: 10px;
     bottom: -15px;
     color: #fff;
+    text-shadow: 2px 2px #000;
 }
 
 a.external {
